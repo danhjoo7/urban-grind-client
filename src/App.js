@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="urban-grind">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -23,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
