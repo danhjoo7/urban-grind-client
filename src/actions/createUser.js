@@ -1,6 +1,6 @@
 import './loginUser'
 
-export const userPostFetch = user => {
+export const createUser = user => {
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/users", {
         method: "POST",
@@ -24,3 +24,7 @@ export const userPostFetch = user => {
     }
   }
 
+  const loginUser = userObj => ({
+    type: 'LOGIN_USER',
+    payload: userObj
+})

@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux';
-import {userPostFetch} from '../actions/createUser';
+import {connect} from 'react-redux'
+import {createUser} from '../actions/createUser'
 
-class Signup extends Component {
+class Signup extends React.Component {
     state = {
       username: "",
       password: "",
@@ -66,7 +66,7 @@ class Signup extends Component {
   }
   
   const mapDispatchToProps = dispatch => ({
-    userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
+    createUser: userInfo => dispatch(createUser(userInfo))
   })
   
   export default connect(null, mapDispatchToProps)(Signup);
