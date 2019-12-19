@@ -5,7 +5,7 @@ import './App.css';
 import Home from './components/Home';
 import About from './components/About'
 import Signup from './components/Signup';
-import Map from './containers/MapContainer'
+import Search from './containers/Search'
 import NavBar from './components/NavBar'
 import Login from './components/Login';
 import MapContainer from './containers/MapContainer';
@@ -30,6 +30,8 @@ componentDidMount () {
             <Route path="/signup" render={(props) => <Signup {...props} />} />
             <Route path="/login" render={(props) => <Login {...props} />} />
             <Route path="/discover" render={(props) => <MapContainer {...props} />} />
+            <Route path="/search" render={(props) => <Search {...props} />} />
+
           </Switch>
         </Router>
       </div>
