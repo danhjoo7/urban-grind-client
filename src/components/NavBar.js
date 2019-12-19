@@ -16,10 +16,7 @@ class NavBar extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        {/* <NavItem>
-                            <Link to="/about">About</Link>
-                        </NavItem> */}
-                        <Nav.Link as={Link} to="/about">About</Nav.Link>
+                        <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
                         <Nav.Link href="/signup">Signup</Nav.Link>
                     </Nav>
