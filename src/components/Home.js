@@ -3,13 +3,11 @@ import NavBar from './NavBar'
 
 
 class Home extends React.Component {
-    render () {
+    render() {
         return (
             <div>
                 <h1>Urban Grind</h1>
-                <div>
-                    {/* <img src="https://www.freepik.com/premium-photo/hot-coffee-with-smoke-heart-bokeh-background_3732171.htm"></img> */}
-                </div>
+                <img src="https://cdn2.lamag.com/wp-content/uploads/sites/6/2017/09/jonas-jacobsson-338014-e1515700628791.jpg" className="background-img"></img>
             </div>
         )
     }

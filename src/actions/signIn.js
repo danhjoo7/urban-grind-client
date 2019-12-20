@@ -1,29 +1,30 @@
-const signIn = (e, state, history ) => {
-    e.preventDefault()
-    return (dispatch) => {
-        dispatch({type: 'BEGIN_SIGN_IN'})
-        
-        fetch('http://localhost:3001/login', {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                user: {
-                    email: state.email, 
-                    password: state.password
-                }
-            })
-        })
+export const signIn = user => {
+    return dispatch => {
+      return fetch("http://localhost:3001/api/v1/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({user})
+      })
         .then(resp => resp.json())
         .then(data => {
-                dispatch({ type: "SET_CURRENT_USER", user: data.user })
-                localStorage.setItem('jwt', data.jwt)
-                history.push('/home')
+          if (data.message) {
+            return {
+                message: "Incorrect username/password. Please try again."
+            }
+          } else {
+            localStorage.setItem("token", data.jwt)
+            dispatch(loginUser(data.user))
+          }
         })
-        
     }
 }
 
-export default signIn
+const loginUser = userObj => ({
+    type: 'LOGIN_USER',
+    payload: userObj
+})
+
+

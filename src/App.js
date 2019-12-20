@@ -9,19 +9,19 @@ import Search from './containers/Search'
 import NavBar from './components/NavBar'
 import Login from './components/Login';
 import MapContainer from './containers/MapContainer';
+import { getProfile} from './actions/getProfile'
 
 class App extends React.Component {
 
-componentDidMount () {
+  componentDidMount = () => {
+    this.props.getProfile()
+  }
 
-}
 
   render() {
     return (
       <div className="App">
         <header className="urban-grind-app"></header>
-        
-        {/* <img src={"https://www.freepik.com/premium-photo/hot-coffee-with-smoke-heart-bokeh-background_3732171.htm"} className="App-logo" alt="logo" /> */}
         <Router>
           <NavBar />
           <Switch>
@@ -31,24 +31,15 @@ componentDidMount () {
             <Route path="/login" render={(props) => <Login {...props} />} />
             <Route path="/discover" render={(props) => <MapContainer {...props} />} />
             <Route path="/search" render={(props) => <Search {...props} />} />
-
           </Switch>
         </Router>
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  getProfile: () => dispatch(getProfile())
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

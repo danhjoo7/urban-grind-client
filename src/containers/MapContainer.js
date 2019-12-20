@@ -1,5 +1,6 @@
 import React from 'react'
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import CurrentLocation from '../components/CurrentLocation'
 
 const mapStyles = {
   width: '100%',
@@ -7,42 +8,49 @@ const mapStyles = {
 }
 
 class MapContainer extends React.Component {
-  constructor(props) {
-    super(props)
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
+  }
 
-    this.state = {
-      places: [
-        { lat: 37.7880, lng: -122.431297 },
-        { lat: 37.7880, lng: -122.4076 },
-        { lat: 37.7757, lng: -122.4180 },
-        { lat: 37.7786, lng: -122.3893 }
-      ]
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
     }
-  }
-
-  displayMarkers = () => {
-    return this.state.places.map((place, index) => {
-      return <Marker key={index} id={index} position={{
-        lat: place.lat,
-        lng: place.lng
-      }}
-        onClick={() => console.log("You clicked me!")} />
-    })
-  }
+  };
 
   render() {
     return (
-      <Map
+      <CurrentLocation
+        centerAroundCurrentLocation
         google={this.props.google}
-        zoom={13}
-        style={mapStyles}
-        initialCenter={{ lat: 37.773972, lng: -122.431297 }}
       >
-        {this.displayMarkers()}
-      </Map>
-    )
+        <Marker onClick={this.onMarkerClick} name={'current location'} />
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}
+        >
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+          </div>
+        </InfoWindow>
+      </CurrentLocation>
+    );
   }
 }
+
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCy65XxkNuvC1LAUhQGbwXo0VyRKk9nbZk'
