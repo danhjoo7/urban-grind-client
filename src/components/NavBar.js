@@ -21,8 +21,9 @@ class NavBar extends React.Component {
                         <Nav.Link href="/signup">Signup</Nav.Link>
                     </Nav>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
+                        <Nav.Link href="/discover">Discover</Nav.Link>
+                        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-success">Search</Button> */}
                     </Form>
                 </Navbar.Collapse>
             </Navbar >

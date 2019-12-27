@@ -8,8 +8,10 @@ import Signup from './components/Signup';
 import Search from './containers/Search'
 import NavBar from './components/NavBar'
 import Login from './components/Login';
-import MapContainer from './containers/MapContainer';
 import { getProfile} from './actions/getProfile'
+import Discover from './components/Discover';
+import MapContainer from './containers/MapContainer'
+import SearchBar from './components/SearchBar'
 
 class App extends React.Component {
 
@@ -29,8 +31,9 @@ class App extends React.Component {
             <Route path="/about" render={(props) => <About {...props} />} />
             <Route path="/signup" render={(props) => <Signup {...props} />} />
             <Route path="/login" render={(props) => <Login {...props} />} />
-            <Route path="/discover" render={(props) => <MapContainer {...props} />} />
-            <Route path="/search" render={(props) => <Search {...props} />} />
+            <Route path="/map" render={(props) => <MapContainer {...props} />} />
+            <Route path="/search" render={(props) => <SearchBar {...props} />} />
+            <Route path="/discover" render={(props) => <Discover {...props} />} />
           </Switch>
         </Router>
       </div>
