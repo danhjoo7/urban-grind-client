@@ -33,7 +33,7 @@ class App extends React.Component {
             <Route path="/login" render={(props) => <Login {...props} />} />
             <Route path="/map" render={(props) => <MapContainer {...props} />} />
             <Route path="/search" render={(props) => <SearchBar {...props} />} />
-            <Route path="/discover" render={(props) => <Discover {...props} />} />
+            <Route path="/discover" render={(props) => <MapContainer {...props} />} />
           </Switch>
         </Router>
       </div>

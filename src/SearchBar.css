@@ -1,4 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .search-bar {
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5));
+    /* background-image: url(https://i.pinimg.com/236x/05/fe/eb/05feeb423dba1803e61f8fae9ec18bf1.jpg); */
+    background-image: url(https://i.pinimg.com/474x/87/07/d1/8707d1c42305a2b79ea3105435d975f0.jpg);
+    background-size: 80vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
 }
+
+h2 {
+    color: #fff;
+    margin-bottom: 70px;
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+ .search-cafe {
+     height: 50px;
+     padding: 10px;
+     /* border: none; */
+     border-radius: 25px;
+     outline: black;
+     width: 400px;
+ }
+
+ .search-btn {
+     height: 50px;
+     width: 150px;
+     background: #143783;
+     color: #000;
+     border-radius: 25px;
+ }
+
+ .search-btn:hover {
+     background: #ffc107;
+     cursor: pointer;
+ }
